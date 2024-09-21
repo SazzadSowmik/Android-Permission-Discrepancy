@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.nll.asr" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <queries>
+        <package android:name="com.nll.asr.license"/>
+        <intent>
+            <action android:name="android.intent.action.SEND"/>
+            <data android:mimeType="message/rfc822"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SEND_MULTIPLE"/>
+            <data android:mimeType="message/rfc822"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SENDTO"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="true"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:hardwareAccelerated="true" android:hasFragileUserData="true" android:icon="@mipmap/ic_launcher" android:label="@string/application_name" android:largeHeap="true" android:name="com.nll.asr.App" android:networkSecurityConfig="@xml/network_security_trust_use_ca" android:requestLegacyExternalStorage="true" android:supportsRtl="true" android:theme="@style/PlaceHolderTheme">
+        <meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="com.nll.asr.cast.CastOptionsProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:exported="false" android:name="com.nll.asr.service.RecorderService"/>
+        <service android:exported="false" android:foregroundServiceType="mediaPlayback" android:name="com.nll.asr.service.PlayerService"/>
+        <service android:exported="false" android:name="com.nll.asr.service.QuickRecordNotificationService"/>
+        <service android:name="com.nll.asr.debug.DebugLogService" android:process=":logger"/>
+        <service android:exported="false" android:name="com.nll.audioconverter.FFMpegCuttingService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.nll.asr.service.FileSplitterService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.nll.asr.importer.FileImporterService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|layoutDirection|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/audio_converter" android:name="com.nll.audioconverter.ui.AudioConverterActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|layoutDirection|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/folder_watcher_tit" android:name="com.nll.asr.folderwatcher.ui.WatcherSettingsActivity"/>
+        <activity android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:launchMode="singleInstance" android:name="com.nll.asr.activity.WidgetProAndShortcutRecordDialog" android:theme="@style/MasterTheme.Widget"/>
+        <activity android:label="@string/application_name" android:name="com.nll.asr.intro.AsrIntro"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/application_name" android:launchMode="singleInstance" android:name="com.nll.asr.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:label="@string/application_name" android:launchMode="singleInstance" android:name="com.nll.asr.activity.RecordingPickerActivity">
+            <intent-filter android:label="@string/application_name">
+                <action android:name="android.intent.action.GET_CONTENT"/>
+                <data android:mimeType="audio/*"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.OPENABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/mediaplayer" android:launchMode="singleInstance" android:name="com.nll.asr.activity.NewMediaPlayerActivity" android:parentActivityName="com.nll.asr.activity.NewRecordingsActivity">
+            <intent-filter android:label="@string/mediaplayer">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/opus"/>
+                <data android:mimeType="audio/opus"/>
+                <data android:mimeType="audio/m4b"/>
+            </intent-filter>
+            <intent-filter android:label="@string/mediaplayer">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="application/ogg"/>
+                <data android:mimeType="application/x-ogg"/>
+                <data android:mimeType="application/opus"/>
+                <data android:mimeType="audio/opus"/>
+                <data android:mimeType="audio/m4b"/>
+            </intent-filter>
+            <intent-filter android:label="@string/mediaplayer">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="*/*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.opus"/>
+            </intent-filter>
+            <intent-filter android:label="@string/mediaplayer">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="*/*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.opus"/>
+            </intent-filter>
+            <intent-filter android:label="@string/mediaplayer">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="content"/>
+                <data android:host="*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.opus"/>
+            </intent-filter>
+            <intent-filter android:label="@string/mediaplayer">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.opus"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.opus"/>
+            </intent-filter>
+            <intent-filter android:label="@string/mediaplayer">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="*/*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.m4b"/>
+            </intent-filter>
+            <intent-filter android:label="@string/mediaplayer">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="*/*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.m4b"/>
+            </intent-filter>
+            <intent-filter android:label="@string/mediaplayer">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="content"/>
+                <data android:host="*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.m4b"/>
+            </intent-filter>
+            <intent-filter android:label="@string/mediaplayer">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.m4b"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.m4b"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/all_recordings" android:launchMode="singleInstance" android:name="com.nll.asr.activity.NewRecordingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/settings" android:name="com.nll.asr.activity.PreferenceActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/settings_recording_folder_tit" android:name="com.nll.asr.activity.FileBrowserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:launchMode="singleInstance" android:name="com.nll.asr.activity.GCMAlertActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/cloud_webserver" android:launchMode="singleInstance" android:name="com.nll.server.WebServerActivity"/>
+        <activity android:label="@string/debug_log" android:launchMode="singleTop" android:name="com.nll.asr.debug.DebugLogActivity"/>
+        <activity android:label="@string/oss_license_title" android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity" android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity android:name="com.google.android.gms.oss.licenses.OssLicensesActivity" android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <receiver android:icon="@mipmap/ic_launcher" android:label="@string/application_name" android:name="com.nll.asr.widget.RecordWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_record"/>
+            <intent-filter>
+                <action android:name="com.nll.asr.widget.RecordWidget.UPDATE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.nll.asr.widget.RecordWidget.UPDATE_RECORDING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.nll.asr.widget.RecordWidget.RECORD"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.nll.asr.widget.RecordWidget.STOP"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:label="BootReceiver" android:name="com.nll.asr.receiver.BootReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.nll.asr.provider.AttachmentProvider" android:exported="true" android:grantUriPermissions="true" android:name="com.nll.asr.provider.AttachmentProvider"/>
+        <provider android:authorities="com.nll.asr.debug.DebugLogAttachmentProvider" android:exported="true" android:grantUriPermissions="true" android:name="com.nll.asr.debug.DebugLogAttachmentProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|layoutDirection|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/cloud2_cloud_services" android:name="com.nll.cloud2.ui.Cloud2MainActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.dropbox.core.android.AuthActivity">
+            <intent-filter>
+                <data android:scheme="@string/cloud2_dropbox_client_scheme"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.microsoft.identity.client.BrowserTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="auth" android:scheme="@string/cloud2_ondrive_client_id_auth_scheme"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="@string/cloud2_item_provider_authority" android:exported="false" android:name="com.nll.cloud2.provider.ItemProvider"/>
+        <activity android:label="@string/buy_pro_license" android:name="com.nll.asr.commons.activity.UpgradeActivity" android:theme="@style/UpgradeActivityTheme"/>
+        <service android:exported="false" android:name="com.nll.messaging.fcm.FCMRegistrationIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.nll.messaging.fcm.FCMMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="@string/messaging_provider_authority" android:exported="false" android:name="com.nll.messaging.fcm.FCMAppCommandProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="false" android:name="org.acra.receiver.NotificationBroadcastReceiver" android:process=":acra"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:exported="false" android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.microsoft.identity.client.AuthenticationActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.microsoft.identity.common.internal.providers.oauth2.AuthorizationActivity"/>
+        <activity android:name="com.microsoft.identity.client.internal.controllers.BrokerActivity"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.nll.asr.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="com.nll.asr.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenSize" android:exported="true" android:name="com.box.androidsdk.content.auth.OAuthActivity"/>
+        <activity android:launchMode="singleInstance" android:name="com.box.androidsdk.content.auth.BlockedIPErrorActivity"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="com.nll.asr.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:enabled="@bool/acra_enable_legacy_service" android:exported="false" android:name="org.acra.sender.LegacySenderService" android:process=":acra"/>
+        <service android:enabled="@bool/acra_enable_job_service" android:exported="false" android:name="org.acra.sender.JobSenderService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":acra"/>
+        <provider android:authorities="com.nll.asr.acra" android:exported="false" android:grantUriPermissions="true" android:name="org.acra.attachment.AcraContentProvider" android:process=":acra"/>
+    </application>
+</manifest>

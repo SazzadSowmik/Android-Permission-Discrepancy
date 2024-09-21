@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.microsoft.rdc.androidx" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.faketouch" android:required="true"/>
+    <application android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:banner="@mipmap/icon_tv_rtm" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher_rtm" android:label="@string/app_name" android:largeHeap="true" android:name="com.microsoft.rdc.android.RDP_AndroidApp" android:resizeableActivity="false" android:roundIcon="@mipmap/icon_round_rtm" android:theme="@style/AppTheme">
+        <activity android:exported="true" android:name="com.microsoft.identity.client.BrowserTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="com.microsoft.rdc.androidx" android:path="/AAXfoSjc4WJkquYRQfLtK2iKoU0=" android:scheme="msauth"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.samsung.android.dex.launchwidth" android:value="0"/>
+        <meta-data android:name="com.samsung.android.dex.launchheight" android:value="0"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:label="@string/app_name_short" android:name="com.microsoft.a3rdc.ui.activities.SessionActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity" android:theme="@style/FullScreenTheme" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+            <meta-data android:name="com.samsung.android.dex.transient_bar_delay" android:value="1500"/>
+        </activity>
+        <activity android:label="@string/app_name_short" android:name="com.microsoft.rdc.ui.activities.HomeActivity" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name_short" android:name="com.microsoft.rdc.ui.activities.TvActivity" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/edit_connection_title_add" android:name="com.microsoft.a3rdc.ui.activities.EditConnectionActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity" android:theme="@style/DialogStyleActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/subscription_dialog_title" android:name="com.microsoft.a3rdc.ui.activities.EditRemoteResourcesActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity" android:theme="@style/DialogStyleActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/local_resolution_customize_title" android:name="com.microsoft.a3rdc.ui.activities.EditLocalResolutionActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.EditConnectionActivity" android:theme="@style/DialogStyleActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.EditConnectionActivity"/>
+        </activity>
+        <activity android:label="@string/credentials_list_title" android:name="com.microsoft.a3rdc.ui.activities.CredentialsListActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/gateways_list_title" android:name="com.microsoft.a3rdc.ui.activities.GatewaysListActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/settings_title" android:name="com.microsoft.a3rdc.ui.activities.SettingsActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/settings_directtouch_title" android:name="com.microsoft.a3rdc.ui.activities.MultitouchActivity" android:parentActivityName="com.microsoft.a3rdc.ui.activities.SettingsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.a3rdc.ui.activities.SettingsActivity"/>
+        </activity>
+        <activity android:label="@string/concenter_nav_settings_displayres" android:name="com.microsoft.a3rdc.ui.activities.DisplayResolutionActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/about_title" android:name="com.microsoft.a3rdc.ui.activities.AboutFragmentActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/whatsnew_title" android:name="com.microsoft.a3rdc.ui.activities.WhatsNewActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/licenses_title" android:name="com.microsoft.a3rdc.ui.activities.LicensesActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity" android:theme="@style/ActivityTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:icon="@mipmap/ic_launcher_rtm" android:label="@string/shortcut_launcher_title" android:name="com.microsoft.a3rdc.ui.activities.ShortcutLauncherActivity" android:theme="@style/ActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.microsoft.a3rdc.ui.activities.FirstRunExperienceActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity" android:theme="@style/NoTitleTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/fre_license_terms_title" android:name="com.microsoft.a3rdc.ui.activities.FirstRunExperienceLicenseActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.FirstRunExperienceActivity" android:theme="@style/ActivityTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.FirstRunExperienceActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.microsoft.a3rdc.ui.activities.MigrateSettingsActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity" android:theme="@style/NoTitleTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/app_name_short" android:name="com.microsoft.a3rdc.ui.activities.RdpFileUriLaunchActivity" android:theme="@style/ActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="application/rdp"/>
+                <data android:mimeType="application/x-rdp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="rdp"/>
+                <data android:scheme="Rdp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.rdp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="*/*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.rdp"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.rdp"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.microsoft.a3rdc.ui.activities.LayoutBoundsQueryActivity" android:parentActivityName="com.microsoft.rdc.ui.activities.HomeActivity" android:theme="@style/TransientFullScreenTheme" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.microsoft.rdc.ui.activities.HomeActivity"/>
+        </activity>
+        <service android:exported="false" android:name="com.microsoft.a3rdc.session.KeepAliveService"/>
+        <activity android:name="com.microsoft.a3rdc.ui.activities.FragmentTestActivity"/>
+        <service android:label="@string/app_name_short" android:name="com.microsoft.a3rdc.test.sns.BugReportServiceManager$BugReportService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:launchMode="singleTask" android:name="com.microsoft.identity.common.internal.providers.oauth2.AuthorizationActivity"/>
+        <activity android:name="com.microsoft.identity.client.internal.controllers.BrokerActivity"/>
+    </application>
+</manifest>

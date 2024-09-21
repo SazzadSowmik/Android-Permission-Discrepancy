@@ -1,0 +1,35 @@
+{
+    "Phone": [
+        "read phone status and identity"
+    ],
+    "Photos/Media/Files": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Storage": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Microphone": [
+        "record audio"
+    ],
+    "Wi-Fi connection information": [
+        "view Wi-Fi connections"
+    ],
+    "Device ID & call information": [
+        "read phone status and identity"
+    ],
+    "Other": [
+        "allow Wi-Fi Multicast reception",
+        "change your audio settings",
+        "control Near Field Communication",
+        "full network access",
+        "pair with Bluetooth devices",
+        "prevent device from sleeping",
+        "run at startup",
+        "view network connections"
+    ],
+    "Uncategorized": [
+        "receive data from Internet"
+    ]
+}

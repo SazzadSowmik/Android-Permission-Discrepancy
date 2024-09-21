@@ -1,0 +1,29 @@
+{
+    "Location": [
+        "approximate location (network-based)",
+        "precise location (GPS and network-based)"
+    ],
+    "Photos/Media/Files": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Storage": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Camera": [
+        "take pictures and videos"
+    ],
+    "Wi-Fi connection information": [
+        "view Wi-Fi connections"
+    ],
+    "Other": [
+        "full network access",
+        "prevent device from sleeping",
+        "run at startup",
+        "view network connections"
+    ],
+    "Uncategorized": [
+        "receive data from Internet"
+    ]
+}

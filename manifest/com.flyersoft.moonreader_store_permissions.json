@@ -1,0 +1,16 @@
+{
+    "Photos/Media/Files": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Storage": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Other": [
+        "full network access",
+        "install shortcuts",
+        "prevent device from sleeping",
+        "view network connections"
+    ]
+}

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" android:installLocation="internalOnly" package="com.flyersoft.moonreader" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@drawable/icon" android:label="@string/app_name" android:name="androidx.multidex.MultiDexApplication" android:networkSecurityConfig="@xml/network_security_config" android:requestLegacyExternalStorage="true" android:roundIcon="@drawable/icon_round" android:theme="@style/MRThemeSelector">
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/app_name" android:name="com.flyersoft.moonreader.ActivityMain">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/*"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="application/pdf"/>
+                <data android:mimeType="application/djvu"/>
+                <data android:mimeType="application/x-cbr"/>
+                <data android:mimeType="application/x-cbz"/>
+                <data android:mimeType="application/epub+zip"/>
+                <data android:mimeType="application/x-mobipocket-ebook"/>
+                <data android:mimeType="application/octet-stream"/>
+                <data android:mimeType="application/x-fictionbook"/>
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+                <data android:mimeType="application/vnd.comicbook-rar"/>
+                <data android:mimeType="application/vnd.comicbook+zip"/>
+                <data android:mimeType="application/x-chm"/>
+                <data android:mimeType="application/chm"/>
+                <data android:mimeType="application/vnd.ms-htmlhelp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*" android:scheme="http"/>
+                <data android:host="*" android:pathPattern=".*\\.epub" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.azw3" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.docx" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.odt" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.md" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.rtf" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.fb2" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.pdf" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.djvu" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.mobi" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.txt" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.cbz" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.cbr" android:scheme="file"/>
+                <data android:host="*" android:pathPattern=".*\\.chm" android:scheme="file"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*" android:scheme="http"/>
+                <data android:pathPattern=".*.epub"/>
+                <data android:pathPattern=".*.azw3"/>
+                <data android:pathPattern=".*.docx"/>
+                <data android:pathPattern=".*.odt"/>
+                <data android:pathPattern=".*.md"/>
+                <data android:pathPattern=".*.rtf"/>
+                <data android:pathPattern=".*.fb2"/>
+                <data android:pathPattern=".*.fb2.zip"/>
+                <data android:pathPattern=".*.mobi"/>
+                <data android:pathPattern=".*.chm"/>
+                <data android:pathPattern=".*.txt"/>
+                <data android:pathPattern=".*.cbz"/>
+                <data android:pathPattern=".*.cbr"/>
+                <data android:pathPattern=".*.pdf"/>
+                <data android:pathPattern=".*.djvu"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*" android:scheme="http"/>
+                <data android:mimeType="application/epub+zip"/>
+                <data android:mimeType="application/x-mobipocket-ebook"/>
+                <data android:mimeType="application/x-fictionbook"/>
+                <data android:mimeType="application/vnd.comicbook-rar"/>
+                <data android:mimeType="application/vnd.comicbook+zip"/>
+                <data android:mimeType="application/x-cbr"/>
+                <data android:mimeType="application/x-cbz"/>
+                <data android:mimeType="application/x-chm"/>
+                <data android:mimeType="application/chm"/>
+                <data android:mimeType="application/vnd.ms-htmlhelp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*" android:scheme="epub"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="*" android:scheme="file"/>
+                <data android:pathPattern=".*.epub"/>
+                <data android:pathPattern=".*.azw3"/>
+                <data android:pathPattern=".*.docx"/>
+                <data android:pathPattern=".*.odt"/>
+                <data android:pathPattern=".*.md"/>
+                <data android:pathPattern=".*.rtf"/>
+                <data android:pathPattern=".*.fb2"/>
+                <data android:pathPattern=".*.fb2.zip"/>
+                <data android:pathPattern=".*.mobi"/>
+                <data android:pathPattern=".*.txt"/>
+                <data android:pathPattern=".*.pdf"/>
+                <data android:pathPattern=".*.djvu"/>
+                <data android:pathPattern=".*.chm"/>
+                <data android:pathPattern=".*.cbz"/>
+                <data android:pathPattern=".*.cbr"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="*" android:mimeType="text/plain" android:scheme="file"/>
+                <data android:pathPattern=".*.epub"/>
+                <data android:pathPattern=".*.azw3"/>
+                <data android:pathPattern=".*.docx"/>
+                <data android:pathPattern=".*.odt"/>
+                <data android:pathPattern=".*.md"/>
+                <data android:pathPattern=".*.rtf"/>
+                <data android:pathPattern=".*.fb2"/>
+                <data android:pathPattern=".*.fb2.zip"/>
+                <data android:pathPattern=".*.mobi"/>
+                <data android:pathPattern=".*.txt"/>
+                <data android:pathPattern=".*.pdf"/>
+                <data android:pathPattern=".*.djvu"/>
+                <data android:pathPattern=".*.chm"/>
+                <data android:pathPattern=".*.cbz"/>
+                <data android:pathPattern=".*.cbr"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*" android:pathPattern=".*.fb2" android:scheme="content"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.GET_CONTENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="application/epub+zip"/>
+                <data android:mimeType="application/azw3"/>
+                <data android:mimeType="application/docx"/>
+                <data android:mimeType="application/odt"/>
+                <data android:mimeType="application/rtf"/>
+                <data android:mimeType="application/fb2"/>
+                <data android:mimeType="application/pdf"/>
+                <data android:mimeType="application/djvu"/>
+                <data android:mimeType="application/x-cbr"/>
+                <data android:mimeType="application/x-cbz"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="application/x-fictionbook"/>
+                <data android:mimeType="application/x-mobipocket-ebook"/>
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+                <data android:mimeType="application/vnd.comicbook-rar"/>
+                <data android:mimeType="application/vnd.comicbook+zip"/>
+                <data android:mimeType="application/x-chm"/>
+                <data android:mimeType="application/chm"/>
+                <data android:mimeType="application/vnd.ms-htmlhelp"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|orientation" android:launchMode="singleTask" android:name="com.dropbox.core.android.AuthActivity">
+            <intent-filter>
+                <data android:scheme="db-aazlleg04g9c5fi"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-2616428184617677~3204168348"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:hardwareAccelerated="true" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flyersoft.moonreader.ActivityTxt"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flyersoft.moonreader.ClickTip"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flyersoft.moonreader.PicGalleryShow"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flyersoft.moonreader.NetBookInfo"/>
+        <activity android:name="com.flyersoft.moonreader.BookDownloadCancelAct"/>
+        <activity android:name="com.flyersoft.moonreader.SelectImageAct"/>
+        <activity android:background="@android:drawable/dialog_frame" android:name="com.flyersoft.moonreader.MediaAct"/>
+        <activity android:name="com.flyersoft.moonreader.CrashTipActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.radaee.util.PopupEditAct" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.radaee.util.CaptureSignature" android:theme="@android:style/Theme.DeviceDefault.Dialog"/>
+        <receiver android:name="com.flyersoft.components.OpenFile_Receiver">
+            <intent-filter>
+                <action android:name="com.flyersoft.moonreader.open_broadcast"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.flyersoft.moonreader.BookDownloadService"/>
+        <provider android:authorities="com.flyersoft.moonreader.provider" android:name="com.flyersoft.moonreader.BookViewProvider"/>
+        <provider android:authorities="com.flyersoft.moonreader.FileProvider" android:enabled="true" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/paths"/>
+        </provider>
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:value="50%"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:value="100%"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:value="30%"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:value="30%"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="1.70893756E15"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.2"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <provider android:authorities="com.flyersoft.moonreader.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.flyersoft.moonreader.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="13"/>
+    </application>
+</manifest>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.duckduckgo.mobile.android" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <instrumentation android:label="Test for common" android:name="androidx.test.runner.AndroidJUnitRunner" android:targetPackage="com.duckduckgo.app.statistics"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher_red" android:label="@string/appName" android:name="com.duckduckgo.app.global.DuckDuckGoApplication" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_red_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true"/>
+        <provider android:authorities="com.duckduckgo.mobile.android.workmanager-init" android:directBootAware="false" android:enabled="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <provider android:authorities="com.duckduckgo.mobile.android.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="false"/>
+        <activity android:icon="@mipmap/ic_launcher_red" android:label="@string/appName" android:name="com.duckduckgo.app.launch.LaunchBridgeActivity" android:roundIcon="@mipmap/ic_launcher_red_round">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:enabled="false" android:icon="@mipmap/ic_launcher_silhouette" android:label="@string/appName" android:name="com.duckduckgo.app.launch.LauncherSilhoutte" android:roundIcon="@mipmap/ic_launcher_silhouette_round" android:targetActivity="com.duckduckgo.app.launch.LaunchBridgeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.APP_BROWSER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:icon="@mipmap/ic_launcher_purple" android:name="com.duckduckgo.app.launch.LauncherPurple" android:roundIcon="@mipmap/ic_launcher_purple_round" android:targetActivity="com.duckduckgo.app.launch.LaunchBridgeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.APP_BROWSER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:icon="@mipmap/ic_launcher_green" android:name="com.duckduckgo.app.launch.LauncherGreen" android:roundIcon="@mipmap/ic_launcher_green_round" android:targetActivity="com.duckduckgo.app.launch.LaunchBridgeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.APP_BROWSER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:icon="@mipmap/ic_launcher_gold" android:name="com.duckduckgo.app.launch.LauncherGold" android:roundIcon="@mipmap/ic_launcher_gold_round" android:targetActivity="com.duckduckgo.app.launch.LaunchBridgeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.APP_BROWSER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:icon="@mipmap/ic_launcher_black" android:name="com.duckduckgo.app.launch.LauncherBlack" android:roundIcon="@mipmap/ic_launcher_black_round" android:targetActivity="com.duckduckgo.app.launch.LaunchBridgeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.APP_BROWSER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:icon="@mipmap/ic_launcher_blue" android:name="com.duckduckgo.app.launch.LauncherBlue" android:roundIcon="@mipmap/ic_launcher_blue_round" android:targetActivity="com.duckduckgo.app.launch.LaunchBridgeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.APP_BROWSER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="true" android:icon="@mipmap/ic_launcher_red" android:name="com.duckduckgo.app.launch.Launcher" android:roundIcon="@mipmap/ic_launcher_red_round" android:targetActivity="com.duckduckgo.app.launch.LaunchBridgeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.APP_BROWSER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:autoRemoveFromRecents="true" android:documentLaunchMode="intoExisting" android:label="@string/appName" android:launchMode="singleTask" android:name="com.duckduckgo.app.systemsearch.SystemSearchActivity" android:stateNotNeeded="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ASSIST"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.duckduckgo.mobile.android.NEW_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/appName" android:name="com.duckduckgo.app.onboarding.ui.OnboardingActivity" android:theme="@style/AppTheme.Dark.Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/appDescription" android:launchMode="singleTask" android:name="com.duckduckgo.app.browser.BrowserActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+                <data android:mimeType="text/html"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="application/xhtml+xml"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/systemTextSearchMessage" android:name="com.duckduckgo.app.SelectedTextSearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.WEB_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/tabActivityTitle" android:name="com.duckduckgo.app.tabs.ui.TabSwitcherActivity"/>
+        <activity android:label="@string/privacyDashboardActivityTitle" android:name="com.duckduckgo.app.privacy.ui.PrivacyDashboardActivity" android:parentActivityName="com.duckduckgo.app.browser.BrowserActivity"/>
+        <activity android:label="@string/scorecardActivityTitle" android:name="com.duckduckgo.app.privacy.ui.ScorecardActivity" android:parentActivityName="com.duckduckgo.app.privacy.ui.PrivacyDashboardActivity"/>
+        <activity android:label="@string/networksActivityTitle" android:name="com.duckduckgo.app.privacy.ui.TrackerNetworksActivity" android:parentActivityName="com.duckduckgo.app.privacy.ui.PrivacyDashboardActivity"/>
+        <activity android:label="@string/privacyTermsActivityTitle" android:name="com.duckduckgo.app.privacy.ui.PrivacyPracticesActivity" android:parentActivityName="com.duckduckgo.app.privacy.ui.PrivacyDashboardActivity"/>
+        <activity android:label="@string/settingsActivityTitle" android:name="com.duckduckgo.app.settings.SettingsActivity" android:parentActivityName="com.duckduckgo.app.browser.BrowserActivity"/>
+        <activity android:label="@string/feedbackActivityTitle" android:name="com.duckduckgo.app.feedback.ui.common.FeedbackActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/brokenSiteHeading" android:name="com.duckduckgo.app.brokensite.BrokenSiteActivity" android:parentActivityName="com.duckduckgo.app.browser.BrowserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/surveyActivityTitle" android:name="com.duckduckgo.app.survey.ui.SurveyActivity" android:parentActivityName="com.duckduckgo.app.browser.BrowserActivity" android:theme="@style/ModalCardTheme"/>
+        <activity android:label="@string/addWidgetInstructionsActivityTitle" android:name="com.duckduckgo.app.widget.ui.AddWidgetInstructionsActivity" android:theme="@style/ModalCardTheme"/>
+        <activity android:label="@string/aboutActivityTitle" android:name="com.duckduckgo.app.about.AboutDuckDuckGoActivity" android:parentActivityName="com.duckduckgo.app.settings.SettingsActivity"/>
+        <activity android:label="@string/bookmarksActivityTitle" android:name="com.duckduckgo.app.bookmarks.ui.BookmarksActivity" android:parentActivityName="com.duckduckgo.app.browser.BrowserActivity"/>
+        <activity android:label="@string/fireproofWebsitesActivityTitle" android:name="com.duckduckgo.app.fire.fireproofwebsite.ui.FireproofWebsitesActivity" android:parentActivityName="com.duckduckgo.app.settings.SettingsActivity"/>
+        <activity android:label="@string/preciseLocationActivityTitle" android:name="com.duckduckgo.app.location.ui.LocationPermissionsActivity" android:parentActivityName="com.duckduckgo.app.settings.SettingsActivity"/>
+        <activity android:name="com.duckduckgo.app.fire.FireActivity" android:process="@string/fireProcessName"/>
+        <activity android:label="@string/changeIconActivityTitle" android:name="com.duckduckgo.app.icon.ui.ChangeIconActivity" android:parentActivityName="com.duckduckgo.app.settings.SettingsActivity"/>
+        <activity android:label="@string/whitelisetActivityTitle" android:name="com.duckduckgo.app.privacy.ui.WhitelistActivity" android:parentActivityName="com.duckduckgo.app.settings.SettingsActivity"/>
+        <activity android:label="@string/globalPrivacyControlActivityTitle" android:name="com.duckduckgo.app.globalprivacycontrol.ui.GlobalPrivacyControlActivity" android:parentActivityName="com.duckduckgo.app.settings.SettingsActivity"/>
+        <service android:name="com.duckduckgo.app.job.AppConfigurationJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.duckduckgo.app.notification.NotificationHandlerService"/>
+        <receiver android:name="com.duckduckgo.widget.SearchWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/search_widget_info"/>
+        </receiver>
+        <receiver android:name="com.duckduckgo.widget.SearchWidgetLight">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/search_widget_info_light"/>
+        </receiver>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <provider android:authorities="com.duckduckgo.mobile.android.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+    </application>
+</manifest>

@@ -1,0 +1,26 @@
+# Exclude virtual environments
+.venv/
+venv/
+app
+res/**
+
+# Exclude APK files
+*.apk
+
+# Exclude environment files
+.env
+
+# Exclude JSON files
+
+
+# Exclude decompiled files
+# Specify directories if needed, e.g., `decompiled/` if they are stored in a particular folder
+decompiled/
+
+# Exclude any output files, can be tailored to specific file types or directories
+*.log
+*.out
+output/
+
+# Allow folder structures while excluding contents
+!.gitkeep

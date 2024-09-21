@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.pathao.user" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:fullBackupContent="@xml/appsflyer_backup_rules" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.pathao.user.base.PathaoApplication" android:resizeableActivity="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:label="@string/text_courier_deliveries" android:name="com.pathao.user.ui.courier.home.view.CourierHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_play" android:name="com.pathao.user.ui.play.home.PlayHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.user.ui.parcels.home.view.ParcelHomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.user.ui.core.reportissue.view.ReportSubmissionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.user.ui.parcels.reportissue.view.ParcelReportSubmissionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.user.ui.food.reportissue.view.FoodReportSubmissionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.user.ui.pharma.prescription.view.PrescriptionUploadActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.user.ui.core.help.FaqWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.core.splash.view.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/branch_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:host="open" android:scheme="@string/branch_scheme"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/branch_host" android:scheme="https"/>
+                <data android:host="pcom.page.link" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.pathao.user.ui.food.home.view.FoodHomeActivity" android:parentActivityName="com.pathao.user.ui.core.landing.view.PlatformActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="com.pathao.user.ui.core.termscondition.view.TermsConditionsActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDSHQAe9INKN7zVyktWmvlG-DCIIML26QU"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:name="com.pathao.user.ui.core.login.view.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.pathao.user.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <meta-data android:name="CLEVERTAP_ACCOUNT_ID" android:value="@string/clevertap_account_id"/>
+        <meta-data android:name="CLEVERTAP_TOKEN" android:value="@string/clevertap_account_token"/>
+        <meta-data android:name="CLEVERTAP_INAPP_EXCLUDE" android:value="SplashActivity,SelectLanguageActivity,OnboardingActivity,LoginActivity,AccountKitActivity,ProfileActivity"/>
+        <meta-data android:name="CLEVERTAP_NOTIFICATION_ICON" android:value="ic_pathao_notification"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.clevertap.android.sdk.InAppNotificationActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.android.camera.CropImage" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.core.registration.view.ProfileRegistrationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.user.ui.core.promotions.view.PromotionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.core.getdiscount.view.GetDiscountActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.core.campaigns.OfferCampaignsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.core.profile.view.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.pathao.user.ui.food.pendingtransaction.view.PendingTransactionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.core.editprofile.view.EditProfileActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.core.common.PickupAddressActivity" android:screenOrientation="portrait" android:theme="@style/RidesAppTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.user.ui.core.bookmarkaddresspicker.view.BookmarkAddressPickerActivity" android:screenOrientation="portrait" android:theme="@style/RidesAppTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.user.ui.core.onboarding.view.OnboardingActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.appsflyer.FirebaseInstanceIdListener">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.pathao.user.services.FcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.pathao.user.services.RideStartEventService"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.user.ui.food.restaurantinfo.view.RestaurantInfoActivity" android:screenOrientation="portrait" android:theme="@style/FoodAppTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="Checkout" android:name="com.pathao.user.ui.food.addpromo.view.FoodPromoActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeFood" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="Order Details" android:name="com.pathao.user.ui.food.orderdetails.view.FoodOrderDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:label="Order History" android:name="com.pathao.user.ui.food.restaurantsearch.view.RestaurantSearchActivity" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="Favourites" android:name="com.pathao.user.ui.food.favourties.view.FavouriteActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="Review" android:name="com.pathao.user.ui.food.reviews.view.RestaurantReviewActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="Favourites" android:name="com.pathao.user.ui.food.reportissue.view.FoodReportIssueActivity" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.user.ui.food.cart.view.FoodCartActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.food.seeallrestaurant.view.SeeAllRestaurantActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.core.bookmarkaddress.view.AddressBookmarkActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <activity android:name="com.pathao.user.ui.core.support.view.CurrentTicketsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name="com.pathao.user.ui.core.help.view.HelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.core.help.LegalActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.core.ratinginfo.view.RatingInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.user.ui.core.landing.view.PlatformActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="com.pathao.user.ui.core.reportissue.view.ReportIssueActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="@string/branch_live_key"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="@string/branch_test_key"/>
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="@bool/branch_test_enable"/>
+        <activity android:name="com.pathao.user.ui.rides.details.view.RideDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.pathao.user.ui.parcels.details.view.ParcelDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.pathao.user.ui.core.language.SelectLanguageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.pathao.user.ui.rides.home.view.RidesHomeActivity" android:screenOrientation="portrait" android:theme="@style/RidesAppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.core.policies.PoliciesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.pathao.user.ui.core.browser.PathaoBrowserActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.pathao.user.ui.core.permissions.PermissionsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.pathao.user.ui.core.startup.RequestPermissionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.pathao.user.ui.rides.driverrating.view.RiderRatingActivity" android:screenOrientation="portrait" android:theme="@style/RidesAppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.pathao.user.ui.core.savedaddress.view.SavedAddressActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.core.addressedit.view.EditAddressActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.pocket.onboarding.view.PocketOnboardingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.user.ui.pocket.details.view.PocketDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.food.location.FoodSetLocationActivity" android:screenOrientation="portrait" android:theme="@style/RidesAppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.food.repeatorder.view.RepeatOrderActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.parcels.addresspicker.ParcelAddressPickerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.parcels.ontransit.view.ParcelTransitActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.parcels.fareinfo.view.ParcelFareInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.core.suspension.UserSuspendedActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.lib.qrcodescanner.QRCodeScanningActivity" android:screenOrientation="portrait" android:theme="@style/QRScannerTheme"/>
+        <activity android:name="com.pathao.user.ui.food.collectionservice.view.CollectionServiceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.core.businessporfile.view.BusinessProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.core.businessporfile.view.BusinessProfileConfirmationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.shop.intro.ShopIntroductionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.shop.web.view.ShopHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pathao.user.ui.shop.orderdetails.view.ShopOrderDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.shop.reportissue.ShopReportIssueActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.shop.reportissue.ShopReportSubmissionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.shop.history.ShopHistoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.pathao.user.ui.games.view.GamesHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.user.ui.parcels.payment.view.ParcelPaymentActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.rides.riderprofile.view.RiderProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.pathao.user.ui.food.orderdetails.view.FoodTimelineActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.user.ui.food.tracking.view.FoodmanTrackingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.user.ui.health.view.HealthActivity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.pathao.user.ui.chat.view.PathaoChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.pathao.user.ui.food.restaurantreportissue.RestaurantReportIssueActivity" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.user.ui.food.restaurantreportissue.RestaurantReportSubmissionActivity" android:theme="@style/AppThemeFood" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.pathao.sdk.topup.view.TopUpMainActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/TopUpTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.pathao.sdk.topup.history.TopUpHistoryDetailsActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/TopUpTheme"/>
+        <activity android:name="com.pathao.sdk.topup.view.offers.OfferListActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/TopUpTheme"/>
+        <activity android:name="com.pathao.sdk.topup.TopUpOnBoardingActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/TopUpTheme"/>
+        <activity android:name="com.pathao.sdk.topup.reportissue.TopUpReportIssueActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/TopUpTheme"/>
+        <activity android:name="com.pathao.sdk.topup.reportissue.TopUpReportSubmissionActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/TopUpTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.landing.WalletLandingActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme"/>
+        <activity android:name="com.pathao.sdk.wallet.customer.ui.verification.WalletVerificationActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.pathao.sdk.wallet.customer.ui.registration.WalletRegistrationActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.pathao.sdk.wallet.customer.ui.setpin.WalletSetPinActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.pathao.sdk.wallet.customer.ui.home.WalletHomeActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme"/>
+        <activity android:name="com.pathao.sdk.wallet.customer.ui.portwalletcashin.WalletPortWalletCashInActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.transactionlist.WalletTransactionListActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme"/>
+        <activity android:name="com.pathao.sdk.wallet.customer.ui.transactiondetail.WalletTransactionDetailActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.account.WalletAccountActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.accountedit.WalletAccountEditActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.changepin.WalletChangePinActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.pathao.sdk.wallet.customer.ui.reportissue.ReportIssuePathaoPayActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme"/>
+        <activity android:name="com.pathao.sdk.wallet.customer.ui.help.generalissues.WalletGeneralIssuesActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.help.support.WalletSupportActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.help.WalletHelpActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.transfer.WalletTransferActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.transferwhitelist.TransferWhiteListActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.withdrawbalance.home.view.WithdrawHomeActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.withdrawbalance.nearbyatm.view.NearbyAtmBoothActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.withdrawbalance.nearbyatmlist.NearbyAtmListActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.withdrawbalance.atmwithdraw.view.AtmWithdrawActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.withdrawbalance.withdrawalrequest.view.WithdrawalRequestActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.withdrawbalance.atmwithdrawsteps.view.AtmWithdrawStepsActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.pathao.sdk.wallet.customer.ui.withdrawbalance.historydetails.WithdrawHistoryDetailsActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.pathao.sdk.wallet.customer.ui.withdrawbalance.reportissue.WithdrawReportIssueActivity" android:screenOrientation="portrait" android:theme="@style/WalletAppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="zendesk.support.request.RequestActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/zs_view_article_loading_title" android:name="zendesk.support.guide.ViewArticleActivity"/>
+        <activity android:label="@string/support_activity_title" android:name="zendesk.support.guide.HelpCenterActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/request_list_activity_title" android:name="zendesk.support.requestlist.RequestListActivity"/>
+        <receiver android:exported="false" android:name="zendesk.support.DeepLinkingBroadcastReceiver">
+            <intent-filter>
+                <action android:name="zendesk.support"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.pathao.user.zendesk.support.SupportSdkStartupProvider" android:enabled="true" android:exported="false" android:name="zendesk.support.SupportSdkStartupProvider"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.clevertap.android.sdk.CTInboxActivity" android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.clevertap.android.sdk.CTPushNotificationReceiver"/>
+        <service android:exported="false" android:name="com.clevertap.android.sdk.CTBackgroundIntentService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.clevertap.BG_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.clevertap.android.sdk.CTBackgroundJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.pathao.user" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.pathao.user.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ml.vision.VisionRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ml.common.CommonComponentRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.pathao.user.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="com.pathao.user.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.pathao.user.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="com.pathao.user.belvedere2.attachments" android:exported="false" android:grantUriPermissions="true" android:name="zendesk.belvedere.BelvedereFileProvider" android:readPermission="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/belvedere_attachment_storage_v2"/>
+        </provider>
+        <provider android:authorities="com.pathao.user.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="13"/>
+    </application>
+</manifest>

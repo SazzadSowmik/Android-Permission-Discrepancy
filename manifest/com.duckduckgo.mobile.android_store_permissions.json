@@ -1,0 +1,37 @@
+{
+    "Location": [
+        "approximate location (network-based)",
+        "precise location (GPS and network-based)"
+    ],
+    "Phone": [
+        "read phone status and identity"
+    ],
+    "Photos/Media/Files": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Storage": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Camera": [
+        "take pictures and videos"
+    ],
+    "Microphone": [
+        "record audio"
+    ],
+    "Wi-Fi connection information": [
+        "view Wi-Fi connections"
+    ],
+    "Device ID & call information": [
+        "read phone status and identity"
+    ],
+    "Other": [
+        "change your audio settings",
+        "full network access",
+        "install shortcuts",
+        "prevent device from sleeping",
+        "run at startup",
+        "view network connections"
+    ]
+}
