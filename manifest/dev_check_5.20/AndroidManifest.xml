@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" package="flar2.devcheck" platformBuildVersionCode="34" platformBuildVersionName="14">
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="android.permission.TRANSMIT_IR" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <permission android:name="flar2.devcheck.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="flar2.devcheck.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <queries>
+        <intent>
+            <action android:name="com.android.vending.billing.InAppBillingService.BIND"/>
+        </intent>
+    </queries>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="flar2.devcheck.MainApp" android:roundIcon="@mipmap/ic_launcher" android:theme="@style/Theme.App.Starting">
+        <activity android:exported="true" android:name="flar2.devcheck.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="flar2.devcheck.utils.OpenGLActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="flar2.devcheck.AboutActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <activity android:name="flar2.devcheck.cputimes.CPUTimeActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="flar2.devcheck.sensors.SensorActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <activity android:name="flar2.devcheck.FeedbackActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <activity android:name="flar2.devcheck.manifest.ManifestActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <activity android:launchMode="singleTask" android:name="flar2.devcheck.BatteryMonitor.BatteryActivity" android:parentActivityName="flar2.devcheck.MainActivity" android:process=":Monitors"/>
+        <activity android:launchMode="singleTask" android:name="flar2.devcheck.MonitorActivity" android:parentActivityName="flar2.devcheck.MainActivity" android:process=":Monitors"/>
+        <activity android:name="flar2.devcheck.TranslateActivity" android:parentActivityName="flar2.devcheck.AboutActivity"/>
+        <activity android:name="flar2.devcheck.benchmark.CompareActivity" android:parentActivityName="flar2.devcheck.benchmark.BenchmarkActivity"/>
+        <activity android:name="flar2.devcheck.benchmark.DeviceActivity" android:parentActivityName="flar2.devcheck.benchmark.BenchmarkActivity"/>
+        <activity android:launchMode="singleTask" android:name="flar2.devcheck.benchmark.BenchmarkActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <activity android:name="flar2.devcheck.TemperatureActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <activity android:exported="false" android:label="@string/tools" android:name="flar2.devcheck.tools.ToolsActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <activity android:exported="false" android:label="@string/tests" android:name="flar2.devcheck.tests.TestActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="flar2.devcheck.tools.BluetoothActivity" android:parentActivityName="flar2.devcheck.tools.ToolsActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.tools.USBActivity" android:parentActivityName="flar2.devcheck.tools.ToolsActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.permissionsSummary.PermissionsSummaryActivity" android:parentActivityName="flar2.devcheck.tools.ToolsActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="flar2.devcheck.tools.WifiActivity" android:parentActivityName="flar2.devcheck.tools.ToolsActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="flar2.devcheck.tools.GpsActivity" android:parentActivityName="flar2.devcheck.tools.ToolsActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="flar2.devcheck.tools.CPUActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.tests.FlashlightActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="flar2.devcheck.tests.ProximityActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="flar2.devcheck.tests.AccelerometerActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="flar2.devcheck.tests.LightSensorActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.tests.HeadsetActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.tests.VibActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.tests.ButtonActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.tests.MultiTouchActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.tests.ScreenActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.tests.BrightnessActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="flar2.devcheck.tests.ChargingActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.tests.SpeakersActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:exported="false" android:name="flar2.devcheck.tests.EarpieceActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="flar2.devcheck.tests.MicActivity" android:parentActivityName="flar2.devcheck.tests.TestActivity"/>
+        <activity android:label="" android:name="flar2.devcheck.ProActivity" android:parentActivityName="flar2.devcheck.MainActivity" android:theme="@style/Theme.Transparent"/>
+        <activity android:label="" android:name="flar2.devcheck.ProDActivity" android:parentActivityName="flar2.devcheck.MainActivity"/>
+        <meta-data android:name="com.samsung.android.icon_container.has_icon_container" android:value="true"/>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+        <provider android:authorities="flar2.devcheck.dpreference.PreferenceProvider" android:enabled="true" android:exported="false" android:name="flar2.devcheck.dpreference.PreferenceProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="flar2.devcheck.monitors.PauseResumeReceiver" android:process=":Monitors">
+            <intent-filter>
+                <action android:name="flar2.devcheck.ACTION_MASTER_MONITOR_TOGGLE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="flar2.devcheck.utils.MonitorReceiver">
+            <intent-filter>
+                <action android:name="flar2.devcheck.MONITOR_ACTIVITY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="flar2.devcheck.utils.BootReceiver" android:process=":Monitors">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="flar2.devcheck.utils.UpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="flar2.devcheck.monitors.CPUMonitorWindow" android:process=":Monitors"/>
+        <service android:name="flar2.devcheck.monitors.TempMonitorWindow" android:process=":Monitors"/>
+        <service android:name="flar2.devcheck.monitors.GPUMonitorWindow" android:process=":Monitors"/>
+        <service android:name="flar2.devcheck.monitors.LoadMonitorWindow" android:process=":Monitors"/>
+        <service android:name="flar2.devcheck.monitors.BatteryMonitorWindow" android:process=":Monitors"/>
+        <service android:name="flar2.devcheck.monitors.RamMonitorWindow" android:process=":Monitors"/>
+        <service android:name="flar2.devcheck.monitors.CurrentMonitorWindow" android:process=":Monitors"/>
+        <service android:name="flar2.devcheck.monitors.NetworkMonitorWindow" android:process=":Monitors"/>
+        <service android:name="flar2.devcheck.monitors.SignalMonitorWindow" android:process=":Monitors"/>
+        <service android:name="flar2.devcheck.monitors.FPSMonitorWindow" android:process=":Monitors"/>
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <service android:exported="false" android:name="flar2.devcheck.BatteryMonitor.BatteryMonitorService" android:process=":Monitors">
+            <intent-filter>
+                <action android:name="flar2.devcheck.BatteryMonitor.BatteryMonitorService"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="@bool/widgetenable" android:exported="false" android:label="@string/dash_widget" android:name="flar2.devcheck.widgets.dashWidget.DashWidget" android:process=":Monitors">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="flar2.devcheck.widgets.AUTO_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/dash_widget_info"/>
+        </receiver>
+        <activity android:exported="true" android:name="flar2.devcheck.widgets.dashWidget.DashWidgetConfigureActivity" android:noHistory="true" android:process=":Monitors">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="@bool/widgetenable" android:exported="false" android:label="@string/battery_widget" android:name="flar2.devcheck.widgets.batteryWidget.BatteryWidget" android:process=":Monitors">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="flar2.devcheck.widgets.AUTO_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/battery_widget_info"/>
+        </receiver>
+        <activity android:exported="true" android:name="flar2.devcheck.widgets.batteryWidget.BatteryWidgetConfigureActivity" android:noHistory="true" android:process=":Monitors">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="@bool/widgetenable" android:exported="false" android:label="@string/bar_detail_widget" android:name="flar2.devcheck.widgets.barDetailWidget.BarDetailWidget" android:process=":Monitors">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="flar2.devcheck.widgets.AUTO_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/bar_detail_widget_info"/>
+        </receiver>
+        <activity android:exported="true" android:name="flar2.devcheck.widgets.barDetailWidget.BarDetailWidgetConfigureActivity" android:noHistory="true" android:process=":Monitors">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="flar2.devcheck.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:name="androidx.core.widget.RemoteViewsCompatService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <uses-library android:name="androidx.window.extensions" android:required="false"/>
+        <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="5.2.1"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="14"/>
+    </application>
+</manifest>

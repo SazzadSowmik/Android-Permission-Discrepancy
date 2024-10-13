@@ -1,0 +1,22 @@
+{
+    "Camera": [
+        "take pictures and videos"
+    ],
+    "Microphone": [
+        "record audio"
+    ],
+    "Wi-Fi connection information": [
+        "view Wi-Fi connections"
+    ],
+    "Other": [
+        "control vibration",
+        "full network access",
+        "prevent device from sleeping",
+        "reorder running apps",
+        "run at startup",
+        "view network connections"
+    ],
+    "Uncategorized": [
+        "receive data from Internet"
+    ]
+}

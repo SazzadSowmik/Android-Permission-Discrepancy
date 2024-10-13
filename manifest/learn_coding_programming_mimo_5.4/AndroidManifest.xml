@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" android:requiredSplitTypes="base__abi,base__density" android:splitTypes="" package="com.getmimo" platformBuildVersionCode="34" platformBuildVersionName="14">
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <permission android:name="com.getmimo.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="com.getmimo.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <queries>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+        <package android:name="com.instagram.android"/>
+        <package android:name="com.facebook.katana"/>
+        <package android:name="com.whatsapp"/>
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT"/>
+            <category android:name="android.intent.category.OPENABLE"/>
+            <data android:mimeType="*/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="com.android.vending.billing.InAppBillingService.BIND"/>
+        </intent>
+        <package android:name="com.sec.android.app.samsungapps"/>
+        <package android:name="com.xiaomi.mipicks"/>
+    </queries>
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION"/>
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <permission android:name="com.getmimo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.getmimo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:hasCode="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.getmimo.App" android:requestLegacyExternalStorage="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/MaterialDarkModeTheme">
+        <profileable android:shell="true"/>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/>
+        <meta-data android:name="com.mixpanel.android.MPConfig.AutoShowMixpanelUpdates" android:value="false"/>
+        <meta-data android:name="com.mixpanel.android.MPConfig.DisableAppOpenEvent" android:value="false"/>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="@string/admob_ads_application_id"/>
+        <meta-data android:name="com.mixpanel.android.MPConfig.RemoveLegacyResidualFiles" android:value="true"/>
+        <receiver android:exported="false" android:name="com.getmimo.apputil.notification.NotificationPublisher"/>
+        <receiver android:exported="false" android:name="com.getmimo.apputil.share.CodePlaygroundShareReceiver"/>
+        <receiver android:exported="false" android:name="com.getmimo.apputil.share.SharePromoLinkReceiver"/>
+        <receiver android:exported="false" android:name="com.getmimo.apputil.share.InviteFriendsShareReceiver"/>
+        <receiver android:exported="false" android:name="com.getmimo.apputil.share.ShareToStoryReceiver"/>
+        <activity android:exported="true" android:name="com.getmimo.ui.SplashActivity" android:noHistory="true" android:theme="@style/MaterialTheme.Launcher">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="getmimo.com" android:path="/login" android:scheme="https"/>
+                <data android:host="getmimo.com" android:path="/register" android:scheme="https"/>
+                <data android:host="getmimo.com" android:path="/onboarding/experience" android:scheme="https"/>
+                <data android:host="getmimo.com" android:path="/onboarding/goal" android:scheme="https"/>
+                <data android:host="getmimo.com" android:path="/resetpassword" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="getmimo.com" android:path="/login" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:path="/register" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:path="/onboarding/experience" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:path="/onboarding/goal" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:path="/resetpassword" android:scheme="mimo"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/ic_launcher_ninja" android:name="com.getmimo.ui.SplashActivity_ninja" android:targetActivity="com.getmimo.ui.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/ic_launcher_ukraine" android:name="com.getmimo.ui.SplashActivity_ukraine" android:targetActivity="com.getmimo.ui.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/ic_launcher_chemist" android:name="com.getmimo.ui.SplashActivity_chemist" android:targetActivity="com.getmimo.ui.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/ic_launcher_batmimo" android:name="com.getmimo.ui.SplashActivity_bat" android:targetActivity="com.getmimo.ui.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/ic_launcher_proud" android:name="com.getmimo.ui.SplashActivity_proud" android:targetActivity="com.getmimo.ui.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="true" android:exported="true" android:icon="@mipmap/ic_launcher" android:name="com.getmimo.ui.SplashActivity_default" android:targetActivity="com.getmimo.ui.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:name="com.getmimo.ui.authentication.AuthenticationActivity" android:theme="@style/MaterialDarkModeTheme.TranslucentStatusBar.NoAnim" android:windowSoftInputMode="adjustResize"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/MaterialDarkModeTheme.TranslucentStatusBar.NoAnim"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity" android:theme="@style/MaterialDarkModeTheme.TranslucentStatusBar.NoAnim">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.getmimo" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.superwall.sdk.paywall.vc.SuperwallPaywallActivity" android:theme="@style/MaterialDarkModeTheme.TranslucentStatusBar"/>
+        <activity android:name="com.superwall.sdk.debug.DebugViewActivity"/>
+        <activity android:name="com.superwall.sdk.debug.localizations.SWLocalizationActivity"/>
+        <activity android:name="com.superwall.sdk.debug.SWConsoleActivity"/>
+        <activity android:exported="true" android:name="com.getmimo.ui.main.MainActivity" android:theme="@style/MaterialDarkModeTheme.NoAnim" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="com.getmimo.STARTUP_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="getmimo.com" android:path="/profile" android:scheme="https"/>
+                <data android:host="getmimo.com" android:pathPattern="/learn/.*" android:scheme="https"/>
+                <data android:host="getmimo.com" android:path="/learn" android:scheme="https"/>
+                <data android:host="getmimo.com" android:pathPattern="/explore/.*" android:scheme="https"/>
+                <data android:host="getmimo.com" android:path="/deeplink/practicetab" android:scheme="https"/>
+                <data android:host="getmimo.com" android:pathPattern="/leaderboard/.*" android:scheme="https"/>
+                <data android:host="getmimo.com" android:pathPattern="/invite/.*" android:scheme="https"/>
+                <data android:host="getmimo.com" android:path="/leaderboard" android:scheme="https"/>
+                <data android:host="getmimo.com" android:pathPattern="/allplans" android:scheme="https"/>
+                <data android:host="getmimo.com" android:pathPattern="/upgradeapp" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="getmimo.com" android:path="/profile" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:pathPattern="/learn/.*" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:path="/learn" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:pathPattern="/explore/.*" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:path="/deeplink/practicetab" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:pathPattern="/leaderboard/.*" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:pathPattern="/invite/.*" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:path="/leaderboard" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:pathPattern="/allplans" android:scheme="mimo"/>
+                <data android:host="getmimo.com" android:pathPattern="/upgradeapp" android:scheme="mimo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="mimosuperwall"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.auth0.android.provider.RedirectActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/com_auth0_domain" android:pathPrefix="/android/com.getmimo/callback" android:scheme="@string/com_auth0_scheme"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/com_auth0_domain" android:pathPrefix="/android/com.getmimo/callback" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.getmimo.ui.chapter.ChapterActivity" android:theme="@style/MaterialDarkModeTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.getmimo.ui.chapter.survey.ChapterSurveyActivity" android:theme="@style/MaterialDarkModeTheme.NoAnim" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.getmimo.ui.iap.allplans.AllPlansActivity" android:theme="@style/AllPlansUpgradeScreen"/>
+        <activity android:name="com.getmimo.ui.profile.SetDailyGoalActivity" android:theme="@style/MaterialDarkModeTheme.NoAnim"/>
+        <activity android:name="com.getmimo.ui.onboarding.intro.IntroSlidesActivity" android:theme="@style/MaterialDarkModeTheme.TranslucentStatusBar.NoAnim"/>
+        <activity android:name="com.getmimo.ui.onboarding.OnboardingActivity" android:theme="@style/MaterialDarkModeTheme.TranslucentStatusBar.NoAnim"/>
+        <activity android:name="com.getmimo.ui.settings.SettingsActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.settings.appearance.ChangeAppearanceActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.settings.appicons.ChangeAppIconActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.certificates.ProfessionalCertificateActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.developermenu.DeveloperMenuActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.inputconsole.InputConsoleActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.developermenu.remoteconfig.DevMenuRemoteConfigActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.developermenu.viewcomponents.ViewComponentsActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.developermenu.viewcomponents.InteractionKeyboardViewComponentsActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.developermenu.viewcomponents.LessonViewComponentsActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.developermenu.viewcomponents.customviews.CustomViewsActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.developermenu.abtest.ABTestConfigActivity"/>
+        <activity android:name="com.getmimo.ui.developermenu.contentexperiment.DevelopersMenuContentExperimentActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.getmimo.ui.developermenu.campaign.DeveloperMenuCampaignActivity"/>
+        <activity android:name="com.getmimo.ui.developermenu.discount.DeveloperMenuDiscountActivity"/>
+        <activity android:name="com.getmimo.ui.integratedwebview.IntegratedWebViewActivity"/>
+        <activity android:name="com.getmimo.ui.challenge.results.ChallengeResultsActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.certificates.CertificateActivity" android:theme="@style/MaterialDarkModeTheme.NoAnim"/>
+        <service android:exported="true" android:name="com.getmimo.data.notification.MimoFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.getmimo.apputil.notification.NotPremiumNotificationService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.getmimo.ui.codeplayground.CodePlaygroundActivity" android:theme="@style/MaterialDarkModeTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.getmimo.ui.upgrade.UpgradeModalActivity" android:theme="@style/DialogModalTheme"/>
+        <activity android:name="com.getmimo.apputil.crop.CustomImageCropActivity" android:theme="@style/ProfilePicturePickerTheme"/>
+        <activity android:name="com.getmimo.ui.glossary.search.GlossarySearchDetailActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.publicprofile.PublicProfileActivity" android:theme="@style/MaterialDarkModeTheme.NoAnim"/>
+        <activity android:name="com.getmimo.ui.awesome.AwesomeModeActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.glossary.GlossaryActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.certificateupgrade.CertificateUpgradeActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <activity android:name="com.getmimo.ui.upgradecompleted.UpgradeCompletedActivity" android:theme="@style/MaterialDarkModeTheme.TranslucentStatusBar.NoAnim"/>
+        <activity android:name="com.getmimo.ui.base.WrapperFragmentActivity" android:theme="@style/MaterialDarkModeTheme"/>
+        <service android:exported="true" android:name="com.getmimo.data.source.remote.savedcode.AutoSaveCodeService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.getmimo.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <provider android:authorities="com.getmimo.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="net.danlew.android.joda.JodaTimeInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <provider android:authorities="com.getmimo.cropper.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.canhub.cropper.CropFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/library_file_paths"/>
+        </provider>
+        <activity android:exported="true" android:name="com.canhub.cropper.CropImageActivity"/>
+        <activity android:name="build.gist.presentation.GistModalActivity" android:theme="@style/GistActivityTheme"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.ktx.FirebasePerfLegacyRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthLegacyRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.ktx.FirebaseMessagingLegacyRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.ktx.FirebaseConfigLegacyRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.ktx.FirebaseInstallationsLegacyRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.ktx.FirebaseCrashlyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsLegacyRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.ktx.FirebaseInappmessagingLegacyRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.FirebaseRemoteConfigKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.FirebaseCrashlyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.FirebaseInAppMessagingKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.FirebaseInAppMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.sessions.FirebaseSessionsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:name="saschpe.android.customtabs.WebViewActivity"/>
+        <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.getmimo.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.OutOfContextTestingActivity"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="com.google.firebase.auth.internal.GenericIdpActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="firebase.auth" android:path="/" android:scheme="genericidp"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="com.google.firebase.auth.internal.RecaptchaActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="firebase.auth" android:path="/" android:scheme="recaptcha"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="6.1.0"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+            <meta-data android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED" android:value="true"/>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.firebase.sessions.SessionLifecycleService"/>
+        <property android:name="android.adservices.AD_SERVICES_CONFIG" android:resource="@xml/ga_ad_services_config"/>
+        <provider android:authorities="com.getmimo.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="com.getmimo.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="android.ext.adservices" android:required="false"/>
+        <uses-library android:name="androidx.window.extensions" android:required="false"/>
+        <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+        <activity android:exported="true" android:name="androidx.compose.ui.tooling.PreviewActivity"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.auth0.android.provider.AuthenticationActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.auth0.android.provider.WebAuthActivity"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>

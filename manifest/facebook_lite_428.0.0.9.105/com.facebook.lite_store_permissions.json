@@ -1,0 +1,73 @@
+{
+    "Device & app history": [
+        "retrieve running apps"
+    ],
+    "Identity": [
+        "add or remove accounts",
+        "find accounts on the device",
+        "read your own contact card"
+    ],
+    "Calendar": [
+        "add or modify calendar events and send email to guests without owners' knowledge",
+        "read calendar events plus confidential information"
+    ],
+    "Contacts": [
+        "find accounts on the device",
+        "modify your contacts",
+        "read your contacts"
+    ],
+    "Location": [
+        "approximate location (network-based)",
+        "precise location (GPS and network-based)"
+    ],
+    "SMS": [
+        "read your text messages (SMS or MMS)"
+    ],
+    "Phone": [
+        "directly call phone numbers",
+        "read call log",
+        "read phone status and identity"
+    ],
+    "Photos/Media/Files": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Storage": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Camera": [
+        "take pictures and videos"
+    ],
+    "Microphone": [
+        "record audio"
+    ],
+    "Wi-Fi connection information": [
+        "view Wi-Fi connections"
+    ],
+    "Device ID & call information": [
+        "read phone status and identity"
+    ],
+    "Other": [
+        "change network connectivity",
+        "change your audio settings",
+        "connect and disconnect from Wi-Fi",
+        "control vibration",
+        "create accounts and set passwords",
+        "draw over other apps",
+        "full network access",
+        "install shortcuts",
+        "pair with Bluetooth devices",
+        "prevent device from sleeping",
+        "read battery statistics",
+        "reorder running apps",
+        "run at startup",
+        "send sticky broadcast",
+        "uninstall shortcuts",
+        "view network connections"
+    ],
+    "Uncategorized": [
+        "bind to a notification listener service",
+        "receive data from Internet"
+    ]
+}

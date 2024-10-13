@@ -1,0 +1,31 @@
+{
+    "Calendar": [
+        "add or modify calendar events and send email to guests without owners' knowledge",
+        "read calendar events plus confidential information"
+    ],
+    "Contacts": [
+        "read your contacts"
+    ],
+    "Photos/Media/Files": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Storage": [
+        "modify or delete the contents of your USB storage",
+        "read the contents of your USB storage"
+    ],
+    "Wi-Fi connection information": [
+        "view Wi-Fi connections"
+    ],
+    "Other": [
+        "control vibration",
+        "full network access",
+        "prevent device from sleeping",
+        "reorder running apps",
+        "run at startup",
+        "view network connections"
+    ],
+    "Uncategorized": [
+        "receive data from Internet"
+    ]
+}
